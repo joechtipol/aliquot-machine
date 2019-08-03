@@ -39,7 +39,7 @@ public class PrimesPortalApplication {
 		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
 	    dataSourceBuilder.driverClassName("org.mariadb.jdbc.Driver");
 	    //connection = DriverManager.getConnection("jdbc:mariadb://mariadbinstance.cg6f7elz5lj1.eu-west-1.rds.amazonaws.com:3306/aliquot_db?user=joe&password=chtipolpwd");
-	    dataSourceBuilder.url("jdbc:mariadb://mariadbinstance.cg6f7elz5lj1.eu-west-1.rds.amazonaws.com:3306/aliquot_db");
+	    dataSourceBuilder.url("jdbc:mariadb://mariadbinstance.cg6f7elz5lj1.eu-west-1.rds.amazonaws.com:3306/aliquot_1");
 	    dataSourceBuilder.username("joe");
 	    dataSourceBuilder.password("chtipolpwd");
 	   // dataSourceBuilder.url("jdbc:mariadb://ns331184.ip-37-187-121.eu:3306/aliquot_1");

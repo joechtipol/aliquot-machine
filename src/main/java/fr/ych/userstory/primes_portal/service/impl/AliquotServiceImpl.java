@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import fr.ych.userstory.primes_portal.model.AliquotNumber;
 import fr.ych.userstory.primes_portal.repo.AliquotNumberRepository;
 import fr.ych.userstory.primes_portal.service.AliquotService;
+import fr.ych.userstory.primes_portal.tools.FactorizationTools;
 
 @Service
 @Transactional
@@ -20,14 +21,20 @@ public class AliquotServiceImpl implements AliquotService {
     private AliquotNumberRepository aliquotNumberRepository;
 
 
-    @Cacheable("aliquotCache")
     public List<AliquotNumber> findAll() {
         return aliquotNumberRepository.findAll();
     }
     
     @Cacheable("aliquotCache")
     public AliquotNumber findById(long id) {
-        return aliquotNumberRepository.findOne(id);
+    	AliquotNumber result=aliquotNumberRepository.findOne(id);
+    	if(result==null)
+    	{
+    	    result=FactorizationTools.sigma(id);
+    		
+			//aliquotNumberRepository.save(result);
+    	}
+        return result;
     }
 
     public AliquotNumber update(AliquotNumber account) {
